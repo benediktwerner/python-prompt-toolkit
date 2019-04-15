@@ -4,12 +4,10 @@ Adaptor classes for using Pygments lexers within prompt_toolkit.
 This includes syntax synchronization code, so that we don't have to start
 lexing at the beginning of a document, when displaying a very large text.
 """
-from __future__ import absolute_import, unicode_literals
-
 import re
 from abc import ABCMeta, abstractmethod
 
-from six import text_type, with_metaclass
+from six import text_type
 from six.moves import range
 
 from prompt_toolkit.filters import to_filter
@@ -26,7 +24,7 @@ __all__ = [
 ]
 
 
-class SyntaxSync(with_metaclass(ABCMeta, object)):
+class SyntaxSync(metaclass=ABCMeta):
     """
     Syntax synchroniser. This is a tool that finds a start position for the
     lexer. This is especially important when editing big documents; we don't

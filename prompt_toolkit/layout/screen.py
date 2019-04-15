@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 from collections import defaultdict, namedtuple
 
 from prompt_toolkit.cache import FastDictCache
@@ -17,7 +15,7 @@ Point = namedtuple('Point', 'x y')
 Size = namedtuple('Size', 'rows columns')
 
 
-class Char(object):
+class Char:
     """
     Represent a single character in a :class:`.Screen`.
 
@@ -139,7 +137,7 @@ _CHAR_CACHE = FastDictCache(Char, size=1000 * 1000)
 Transparent = '[transparent]'
 
 
-class Screen(object):
+class Screen:
     """
     Two dimensional buffer of :class:`.Char` instances.
     """
@@ -272,7 +270,7 @@ class Screen(object):
                 row[x] = char_cache[cell.char, prepend_style + cell.style + append_style]
 
 
-class WritePosition(object):
+class WritePosition:
     def __init__(self, xpos, ypos, width, height):
         assert height >= 0
         assert width >= 0

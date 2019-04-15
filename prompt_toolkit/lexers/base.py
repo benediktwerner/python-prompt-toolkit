@@ -1,11 +1,9 @@
 """
 Base classes for prompt_toolkit lexers.
 """
-from __future__ import unicode_literals
-
 from abc import ABCMeta, abstractmethod
 
-from six import text_type, with_metaclass
+from six import text_type
 
 __all__ = [
     'Lexer',
@@ -14,7 +12,7 @@ __all__ = [
 ]
 
 
-class Lexer(with_metaclass(ABCMeta, object)):
+class Lexer(metaclass=ABCMeta):
     """
     Base class for all lexers.
     """

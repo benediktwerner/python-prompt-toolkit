@@ -9,12 +9,8 @@ When the UI is rendered, these transformations can be applied right after the
 style strings are turned into `Attrs` objects that represent the actual
 formatting.
 """
-from __future__ import unicode_literals
-
 from abc import ABCMeta, abstractmethod
 from colorsys import hls_to_rgb, rgb_to_hls
-
-from six import with_metaclass
 
 from prompt_toolkit.cache import memoized
 from prompt_toolkit.filters import to_filter
@@ -36,7 +32,7 @@ __all__ = [
 ]
 
 
-class StyleTransformation(with_metaclass(ABCMeta, object)):
+class StyleTransformation(metaclass=ABCMeta):
     """
     Base class for any style transformation.
     """

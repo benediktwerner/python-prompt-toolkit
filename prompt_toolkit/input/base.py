@@ -1,12 +1,8 @@
 """
 Abstraction of CLI Input.
 """
-from __future__ import unicode_literals
-
 from abc import ABCMeta, abstractmethod, abstractproperty
 from contextlib import contextmanager
-
-from six import with_metaclass
 
 __all__ = [
     'Input',
@@ -14,7 +10,7 @@ __all__ = [
 ]
 
 
-class Input(with_metaclass(ABCMeta, object)):
+class Input(metaclass=ABCMeta):
     """
     Abstraction for any input.
 

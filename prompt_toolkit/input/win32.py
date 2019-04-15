@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import msvcrt
 import os
 import sys
@@ -92,7 +90,7 @@ class Win32Input(Input):
         return self.console_input_reader.handle
 
 
-class ConsoleInputReader(object):
+class ConsoleInputReader:
     """
     :param recognize_paste: When True, try to discover paste actions and turn
         the event into a BracketedPaste.
@@ -454,7 +452,7 @@ def detach_win32_input(input):
             _current_callbacks[loop] = previous
 
 
-class raw_mode(object):
+class raw_mode:
     """
     ::
 

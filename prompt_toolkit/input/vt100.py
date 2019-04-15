@@ -1,11 +1,10 @@
-from __future__ import unicode_literals
-
 import contextlib
 import io
 import os
 import sys
 import termios
 import tty
+from typing import Dict, Any, Set
 
 from ..eventloop import get_event_loop
 from .base import Input
@@ -24,8 +23,9 @@ class Vt100Input(Input):
     Vt100 input for Posix systems.
     (This uses a posix file descriptor that can be registered in the event loop.)
     """
-    _fds_not_a_terminal = set()  # For the error messages. Only display "Input
-                                 # is not a terminal" once per file descriptor.
+    # For the error messages. Only display "Input is not a terminal" once per
+    # file descriptor.
+    _fds_not_a_terminal: Set[int] = set()
 
     def __init__(self, stdin):
         # Test whether the given input object has a file descriptor.
@@ -130,7 +130,7 @@ class Vt100Input(Input):
         return 'fd-%s' % (self._fileno, )
 
 
-_current_callbacks = {}  # (loop, fd) -> current callback
+_current_callbacks: Dict[Any, int] = {}  # (loop, fd) -> current callback
 
 
 @contextlib.contextmanager
@@ -178,7 +178,7 @@ def _detached_input(input):
             _current_callbacks[loop, fd] = previous
 
 
-class raw_mode(object):
+class raw_mode:
     """
     ::
 

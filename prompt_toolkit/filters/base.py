@@ -1,8 +1,5 @@
-from __future__ import unicode_literals
-
 from abc import ABCMeta, abstractmethod
-
-from six import with_metaclass
+from typing import Union
 
 from prompt_toolkit.utils import test_callable_args
 
@@ -11,10 +8,10 @@ __all__ = [
     'Never',
     'Always',
     'Condition',
+    'FilterOrBool'
 ]
 
-
-class Filter(with_metaclass(ABCMeta, object)):
+class Filter(metaclass=ABCMeta):
     """
     Base class for any filter to activate/deactivate a feature, depending on a
     condition.
@@ -217,3 +214,7 @@ class Condition(Filter):
 
     def __repr__(self):
         return 'Condition(%r)' % self.func
+
+
+# Often used as type annotation.
+FilterOrBool = Union[Filter, bool]

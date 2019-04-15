@@ -1,8 +1,6 @@
 """
 The `Document` that implements all the text operations/querying.
 """
-from __future__ import unicode_literals
-
 import bisect
 import re
 import string
@@ -60,7 +58,7 @@ class _ImmutableLineList(list):
     sort = _error
 
 
-class _DocumentCache(object):
+class _DocumentCache:
     def __init__(self):
         #: List of lines for the Document text.
         self.lines = None
@@ -69,7 +67,7 @@ class _DocumentCache(object):
         self.line_indexes = None
 
 
-class Document(object):
+class Document:
     """
     This is a immutable class around the text and cursor position, and contains
     methods for querying this data, e.g. to give the text before the cursor.

@@ -1,8 +1,6 @@
 """
 Wrapper for the layout.
 """
-from __future__ import unicode_literals
-
 import six
 
 from prompt_toolkit.buffer import Buffer
@@ -17,7 +15,7 @@ __all__ = [
 ]
 
 
-class Layout(object):
+class Layout:
     """
     The layout for a prompt_toolkit
     :class:`~prompt_toolkit.application.Application`.

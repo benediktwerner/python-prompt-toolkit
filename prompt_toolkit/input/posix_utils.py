@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import os
 import select
 from codecs import getincrementaldecoder
@@ -11,7 +9,7 @@ __all__ = [
 ]
 
 
-class PosixStdinReader(object):
+class PosixStdinReader:
     """
     Wrapper around stdin which reads (nonblocking) the next available 1024
     bytes and decodes it.

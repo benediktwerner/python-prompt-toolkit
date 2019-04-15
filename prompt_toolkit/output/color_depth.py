@@ -1,6 +1,5 @@
-from __future__ import unicode_literals
-
 import os
+from enum import Enum
 
 from prompt_toolkit.utils import is_windows
 
@@ -9,7 +8,7 @@ __all__ = [
 ]
 
 
-class ColorDepth(object):
+class ColorDepth(Enum):
     """
     Possible color depth values for the output.
     """

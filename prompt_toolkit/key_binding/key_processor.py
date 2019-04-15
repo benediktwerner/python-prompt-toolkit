@@ -6,8 +6,6 @@ the input in the :class:`~prompt_toolkit.inputstream.InputStream` instance.
 The `KeyProcessor` will according to the implemented keybindings call the
 correct callbacks when new key presses are feed through `feed`.
 """
-from __future__ import unicode_literals
-
 import time
 import weakref
 from collections import deque
@@ -32,7 +30,7 @@ __all__ = [
 ]
 
 
-class KeyPress(object):
+class KeyPress:
     """
     :param key: A `Keys` instance or text (one character).
     :param data: The received string on stdin. (Often vt100 escape codes.)
@@ -62,7 +60,7 @@ NOTE: the implementation is very similar to the VT100 parser.
 _Flush = KeyPress('?', data='_Flush')
 
 
-class KeyProcessor(object):
+class KeyProcessor:
     """
     Statemachine that receives :class:`KeyPress` instances and according to the
     key bindings in the given :class:`KeyBindings`, calls the matching handlers.
@@ -411,7 +409,7 @@ class KeyProcessor(object):
         run_in_executor(wait, _daemon=True)
 
 
-class KeyPressEvent(object):
+class KeyPressEvent:
     """
     Key press event, delivered to key bindings.
 

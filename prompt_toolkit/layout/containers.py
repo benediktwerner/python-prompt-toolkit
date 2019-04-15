@@ -2,12 +2,10 @@
 Container for the layout.
 (Containers can contain other containers or user interface controls.)
 """
-from __future__ import unicode_literals
-
 from abc import ABCMeta, abstractmethod
 from functools import partial
 
-from six import text_type, with_metaclass
+from six import text_type
 from six.moves import range
 
 from prompt_toolkit.application.current import get_app
@@ -59,7 +57,7 @@ __all__ = [
 ]
 
 
-class Container(with_metaclass(ABCMeta, object)):
+class Container(metaclass=ABCMeta):
     """
     Base class for user interface layout.
     """
@@ -825,7 +823,7 @@ class FloatContainer(Container):
         return children
 
 
-class Float(object):
+class Float:
     """
     Float for use in a :class:`.FloatContainer`.
     Except for the `content` parameter, all other options are optional.
@@ -896,7 +894,7 @@ class Float(object):
         return 'Float(content=%r)' % self.content
 
 
-class WindowRenderInfo(object):
+class WindowRenderInfo:
     """
     Render information, for the last render time of this control.
     It stores mapping information between the input buffers (in case of a
@@ -1104,7 +1102,7 @@ class WindowRenderInfo(object):
             return 1
 
 
-class ScrollOffsets(object):
+class ScrollOffsets:
     """
     Scroll offsets for the :class:`.Window` class.
 
@@ -1142,7 +1140,7 @@ class ScrollOffsets(object):
             self._top, self._bottom, self._left, self._right)
 
 
-class ColorColumn(object):
+class ColorColumn:
     " Column for a :class:`.Window` to be colored. "
     def __init__(self, position, style='class:color-column'):
         assert isinstance(position, int)

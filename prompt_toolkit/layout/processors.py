@@ -5,12 +5,10 @@ from a buffer before the BufferControl will render it to the screen.
 They can insert fragments before or after, or highlight fragments by replacing the
 fragment types.
 """
-from __future__ import unicode_literals
-
 import re
 from abc import ABCMeta, abstractmethod
 
-from six import text_type, with_metaclass
+from six import text_type
 from six.moves import range
 
 from prompt_toolkit.application.current import get_app
@@ -53,7 +51,7 @@ __all__ = [
 ]
 
 
-class Processor(with_metaclass(ABCMeta, object)):
+class Processor(metaclass=ABCMeta):
     """
     Manipulate the fragments for a given line in a
     :class:`~prompt_toolkit.layout.controls.BufferControl`.
@@ -68,7 +66,7 @@ class Processor(with_metaclass(ABCMeta, object)):
         return Transformation(transformation_input.fragments)
 
 
-class TransformationInput(object):
+class TransformationInput:
     """
     :param control: :class:`.BufferControl` instance.
     :param lineno: The number of the line to which we apply the processor.
@@ -93,7 +91,7 @@ class TransformationInput(object):
                 self.source_to_display, self.fragments, self.width, self.height)
 
 
-class Transformation(object):
+class Transformation:
     """
     Transformation result, as returned by :meth:`.Processor.apply_transformation`.
 

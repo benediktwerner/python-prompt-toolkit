@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import xml.dom.minidom as minidom
 
 import six
@@ -11,7 +9,7 @@ __all__ = [
 ]
 
 
-class HTML(object):
+class HTML:
     """
     HTML formatted text.
     Take something HTML-like, for use as a formatted string.

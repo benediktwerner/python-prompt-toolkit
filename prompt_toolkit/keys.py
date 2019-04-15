@@ -1,12 +1,10 @@
-from __future__ import unicode_literals
-
 __all__ = [
     'Keys',
     'ALL_KEYS',
 ]
 
 
-class Keys(object):
+class Keys:
     """
     List of keys for use in key bindings.
     """

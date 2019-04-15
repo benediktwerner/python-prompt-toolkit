@@ -1,12 +1,7 @@
 """
 Margin implementations for a :class:`~prompt_toolkit.layout.containers.Window`.
 """
-from __future__ import unicode_literals
-
 from abc import ABCMeta, abstractmethod
-
-from six import with_metaclass
-from six.moves import range
 
 from prompt_toolkit.filters import to_filter
 from prompt_toolkit.formatted_text import (
@@ -24,7 +19,7 @@ __all__ = [
 ]
 
 
-class Margin(with_metaclass(ABCMeta, object)):
+class Margin(metaclass=ABCMeta):
     """
     Base interface for a margin.
     """

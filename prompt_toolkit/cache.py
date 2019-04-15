@@ -1,7 +1,6 @@
-from __future__ import unicode_literals
-
 from collections import deque
 from functools import wraps
+from typing import Callable, Dict, Deque, Generic, TypeVar
 
 __all__ = [
     'SimpleCache',
@@ -9,22 +8,25 @@ __all__ = [
     'memoized',
 ]
 
+_T = TypeVar('_T')
+_U = TypeVar('_U')
 
-class SimpleCache(object):
+
+class SimpleCache(Generic[_T, _U]):
     """
     Very simple cache that discards the oldest item when the cache size is
     exceeded.
 
     :param maxsize: Maximum size of the cache. (Don't make it too big.)
     """
-    def __init__(self, maxsize=8):
-        assert isinstance(maxsize, int) and maxsize > 0
+    def __init__(self, maxsize: int = 8) -> None:
+        assert maxsize > 0
 
-        self._data = {}
-        self._keys = deque()
-        self.maxsize = maxsize
+        self._data: Dict[_T, _U] = {}
+        self._keys: Deque[_T] = deque()
+        self.maxsize: int = maxsize
 
-    def get(self, key, getter_func):
+    def get(self, key: _T, getter_func: Callable[[], _U]) -> _U:
         """
         Get object from the cache.
         If not found, call `getter_func` to resolve it, and put that on the top
@@ -47,7 +49,7 @@ class SimpleCache(object):
 
             return value
 
-    def clear(self):
+    def clear(self) -> None:
         " Clear cache. "
         self._data = {}
         self._keys = deque()

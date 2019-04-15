@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 from collections import defaultdict
 from itertools import product
 
@@ -8,7 +6,7 @@ __all__ = [
 ]
 
 
-class MouseHandlers(object):
+class MouseHandlers:
     """
     Two dimensional raster of callbacks for mouse events.
     """

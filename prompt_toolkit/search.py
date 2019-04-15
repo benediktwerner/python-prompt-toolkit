@@ -5,8 +5,6 @@ For the key bindings implementation with attached filters, check
 `prompt_toolkit.key_binding.bindings.search`. (Use these for new key bindings
 instead of calling these function directly.)
 """
-from __future__ import unicode_literals
-
 import six
 
 from .application.current import get_app
@@ -20,14 +18,14 @@ __all__ = [
 ]
 
 
-class SearchDirection(object):
+class SearchDirection:
     FORWARD = 'FORWARD'
     BACKWARD = 'BACKWARD'
 
     _ALL = [FORWARD, BACKWARD]
 
 
-class SearchState(object):
+class SearchState:
     """
     A search 'query', associated with a search field (like a SearchToolbar).
 

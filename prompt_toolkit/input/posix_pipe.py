@@ -23,7 +23,7 @@ class PosixPipeInput(Vt100Input):
     def __init__(self, text=''):
         self._r, self._w = os.pipe()
 
-        class Stdin(object):
+        class Stdin:
             def isatty(stdin):
                 return True
 

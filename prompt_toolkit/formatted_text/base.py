@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import six
 
 __all__ = [
@@ -100,7 +98,7 @@ class FormattedText(list):
             super(FormattedText, self).__repr__())
 
 
-class Template(object):
+class Template:
     """
     Template for string interpolation with formatted text.
 

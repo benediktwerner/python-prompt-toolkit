@@ -1,12 +1,9 @@
 """
 The base classes for the styling.
 """
-from __future__ import absolute_import, unicode_literals
-
 from abc import ABCMeta, abstractmethod, abstractproperty
 from collections import namedtuple
-
-from six import with_metaclass
+from typing import List
 
 __all__ = [
     'Attrs',
@@ -76,12 +73,13 @@ assert set(ANSI_COLOR_NAMES_ALIASES.values()).issubset(set(ANSI_COLOR_NAMES))
 assert not (set(ANSI_COLOR_NAMES_ALIASES.keys()) & set(ANSI_COLOR_NAMES))
 
 
-class BaseStyle(with_metaclass(ABCMeta, object)):
+class BaseStyle(metaclass=ABCMeta):
     """
     Abstract base class for prompt_toolkit styles.
     """
     @abstractmethod
-    def get_attrs_for_style_str(self, style_str, default=DEFAULT_ATTRS):
+    def get_attrs_for_style_str(
+            self, style_str: str, default: Attrs = DEFAULT_ATTRS) -> Attrs:
         """
         Return :class:`.Attrs` for the given style string.
 
@@ -91,7 +89,7 @@ class BaseStyle(with_metaclass(ABCMeta, object)):
         """
 
     @abstractproperty
-    def style_rules(self):
+    def style_rules(self) -> List:
         """
         The list of style rules, used to create this style.
         (Required for `DynamicStyle` and `_MergedStyle` to work.)

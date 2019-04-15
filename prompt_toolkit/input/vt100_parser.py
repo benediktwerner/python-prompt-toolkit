@@ -1,8 +1,6 @@
 """
 Parser for VT100 input stream.
 """
-from __future__ import unicode_literals
-
 import re
 
 import six
@@ -34,7 +32,7 @@ _cpr_response_prefix_re = re.compile('^' + re.escape('\x1b[') + r'[\d;]*\Z')
 _mouse_event_prefix_re = re.compile('^' + re.escape('\x1b[') + r'(<?[\d;]*|M.{0,2})\Z')
 
 
-class _Flush(object):
+class _Flush:
     """ Helper object to indicate flush operation to the parser. """
     pass
 
@@ -60,7 +58,7 @@ class _IsPrefixOfLongerMatchCache(dict):
 _IS_PREFIX_OF_LONGER_MATCH_CACHE = _IsPrefixOfLongerMatchCache()
 
 
-class Vt100Parser(object):
+class Vt100Parser:
     """
     Parser for VT100 input stream.
     Data can be fed through the `feed` method and the given callback will be

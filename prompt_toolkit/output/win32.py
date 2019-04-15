@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import os
 from ctypes import (
     ArgumentError,
@@ -484,7 +482,7 @@ assert set(FG_ANSI_COLORS) == set(ANSI_COLOR_NAMES)
 assert set(BG_ANSI_COLORS) == set(ANSI_COLOR_NAMES)
 
 
-class ColorLookupTable(object):
+class ColorLookupTable:
     """
     Inspired by pygments/formatters/terminal256.py
     """

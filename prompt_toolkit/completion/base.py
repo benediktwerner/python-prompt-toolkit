@@ -1,10 +1,8 @@
 """
 """
-from __future__ import unicode_literals
-
 from abc import ABCMeta, abstractmethod
 
-from six import text_type, with_metaclass
+from six import text_type
 
 from prompt_toolkit.eventloop import (
     AsyncGeneratorItem,
@@ -23,7 +21,7 @@ __all__ = [
 ]
 
 
-class Completion(object):
+class Completion:
     """
     :param text: The new string that will be inserted into the document.
     :param start_position: Position relative to the cursor_position where the
@@ -112,7 +110,7 @@ class Completion(object):
             display_meta=self._display_meta)
 
 
-class CompleteEvent(object):
+class CompleteEvent:
     """
     Event that called the completer.
 
@@ -140,7 +138,7 @@ class CompleteEvent(object):
             self.__class__.__name__, self.text_inserted, self.completion_requested)
 
 
-class Completer(with_metaclass(ABCMeta, object)):
+class Completer(metaclass=ABCMeta):
     """
     Base class for completer implementations.
     """

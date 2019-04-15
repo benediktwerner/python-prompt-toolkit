@@ -2,8 +2,6 @@
 Layout dimensions are used to give the minimum, maximum and preferred
 dimensions for containers and controls.
 """
-from __future__ import unicode_literals
-
 from prompt_toolkit.utils import test_callable_args
 
 __all__ = [
@@ -16,7 +14,7 @@ __all__ = [
 ]
 
 
-class Dimension(object):
+class Dimension:
     """
     Specified dimension (width/height) of a user control or window.
 
